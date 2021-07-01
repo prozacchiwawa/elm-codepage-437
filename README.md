@@ -8,6 +8,41 @@ You can pick them out and use them if you want to display things as they would h
 
 You can do things like this with it:
 
-   ```hex-repr 59dd8d823459a6725c3ce8e0a2e422dead139b1b3b46e8645b4ba7a39750996f```
+    module Main exposing (main)
 
-   ```string "Y▌ìé4Yªr\<ΦαóΣ"▐¡‼¢←;FΦd[KºúùPÖo"```
+    import Browser
+    import Html exposing (Html, div, pre, text)
+    import Codepage.Codepage437 exposing (cp437)
+
+    type alias Model = ()
+
+    initialModel : Model
+    initialModel = ()
+
+    type Msg
+        = Noop
+
+    update : Msg -> Model -> Model
+    update msg model = model
+
+    view : Model -> Html Msg
+    view model =
+        let
+            toDisplay =
+                List.range 0xe0 0xef
+                |> List.map (\i -> String.slice i (i+1) cp437)
+                |> String.concat
+        in
+        div [] [ pre [] [ text "CGA ", text toDisplay ] ]
+
+    main : Program () Model Msg
+    main =
+        Browser.sandbox
+            { init = initialModel
+            , view = view
+            , update = update
+            }
+
+Displaying:
+
+    CGA αßΓπΣσµτΦΘΩδ∞φε∩
