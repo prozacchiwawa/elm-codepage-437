@@ -3,7 +3,7 @@
     "name": "prozacchiwawa/elm-codepage-437",
     "summary": "a string containing the 256 unicode codepoints of codepage 437",
     "license": "MIT",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "exposed-modules": ["Codepage.Codepage437"],
     "source-directories": [
         "src"
