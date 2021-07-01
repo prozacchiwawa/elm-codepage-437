@@ -1,5 +1,10 @@
 module Codepage.Codepage437 exposing (cp437)
+{-| A module containing a string that gives unicode codepoints for
+    the 256 characters of the ibm extended character set, or
+    codepage 437.
+ -}
 
+{-| The codepage content string.  Pick out characters by position. -}
 cp437 : String
 cp437 =
     [ 0x0000, 0x263A, 0x263B, 0x2665, 0x2666, 0x2663, 0x2660, 0x2022
